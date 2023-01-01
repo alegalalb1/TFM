@@ -2,11 +2,11 @@
 
 ### Predicción de Edad y Género a partir de la imagen de una persona
 
-El conjunto de datos UTKFace se encuentra disponible en el siguiente [https://susanqq.github.io/UTKFace/](enlace).
+El conjunto de datos UTKFace se encuentra disponible en el siguiente [enlace](https://susanqq.github.io/UTKFace/).
 
 Este trabajo consta de 4 notebooks:
 
-* **data.ipynb:** En este notebook se realizan todas las tareas relacionadas con el conjunto de datos: se descomprimen los datos en la VM (Virtual Machine) local de *Colab*; se efectúa la carga de los datos en un `pd.DataFrame`, tomando las etiquetas de cada muestra a partir del nombre del archivo; el hace un análisis numérico y gráfico de datos de entrada y etiquetas; se adaptan al formato TFRecord y se distribuyen en 11 ficheros, para posteriormente  subirlos a un bucket de GCS repartidos en 11 carpetas distintas, de forma que estén disponibles para el proceso de entrenamiento y testeo según la estrategia de validación cruzada. Este notebook toma datos de entrada de *Google Drive* y su salida se almacena en un bucket de GCS.
+* **data.ipynb:** En este notebook se realizan todas las tareas relacionadas con el conjunto de datos: se descomprimen los datos en la VM (Virtual Machine) local de Colab; se efectúa la carga de los datos en un `pd.DataFrame`, tomando las etiquetas de cada muestra a partir del nombre del archivo; se hace un análisis numérico y gráfico de datos de entrada y etiquetas; se adaptan al formato TFRecord y se distribuyen en 11 ficheros, para posteriormente subirlos a un bucket de GCS repartidos en 11 carpetas distintas, de forma que estén disponibles para el proceso de entrenamiento y testeo según la estrategia de validación cruzada. Este notebook toma datos de entrada de Google Drive y su salida se almacena en un bucket de GCS.
 
 * **TPU.ipynb & GPU.ipynb:** Aunque realmente existen 2 notebooks distintos, conceptualmente ambos realizan la misma función. En estos notebooks se realizan las siguientes tareas:
   * Lectura de los ficheros TFRecord de GCS y su carga en una estructura `tf.data.Dataset`, preparando cada subconjunto de datos mediante tareas como aumento de datos, agrupado de los datos en lotes o batch y prefetching.
